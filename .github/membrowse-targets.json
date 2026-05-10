@@ -1,0 +1,38 @@
+[
+  {
+    "target_name": "cortex_m0",
+    "setup_cmd": "sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi cmake ninja-build",
+    "build_cmd": "bash .github/scripts/build_membrowse_target.sh cortex_m0",
+    "elf": "ports/cortex_m0/gnu/example_build/sample_threadx.elf",
+    "ld": "ports/cortex_m0/gnu/example_build/sample_threadx.ld",
+    "map_file": "ports/cortex_m0/gnu/example_build/sample_threadx.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "cortex_m3",
+    "setup_cmd": "sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi cmake ninja-build",
+    "build_cmd": "bash .github/scripts/build_membrowse_target.sh cortex_m3",
+    "elf": "ports/cortex_m3/gnu/example_build/sample_threadx.elf",
+    "ld": "ports/cortex_m3/gnu/example_build/sample_threadx.ld",
+    "map_file": "ports/cortex_m3/gnu/example_build/sample_threadx.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "cortex_m4",
+    "setup_cmd": "sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi cmake ninja-build",
+    "build_cmd": "bash .github/scripts/build_membrowse_target.sh cortex_m4",
+    "elf": "ports/cortex_m4/gnu/example_build/sample_threadx.elf",
+    "ld": "ports/cortex_m4/gnu/example_build/sample_threadx.ld",
+    "map_file": "ports/cortex_m4/gnu/example_build/sample_threadx.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "cortex_m7",
+    "setup_cmd": "sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi cmake ninja-build",
+    "build_cmd": "bash .github/scripts/build_membrowse_target.sh cortex_m7",
+    "elf": "ports/cortex_m7/gnu/example_build/sample_threadx.elf",
+    "ld": "ports/cortex_m7/gnu/example_build/sample_threadx.ld",
+    "map_file": "ports/cortex_m7/gnu/example_build/sample_threadx.map",
+    "linker_vars": ""
+  }
+]

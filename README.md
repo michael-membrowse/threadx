@@ -1,5 +1,7 @@
 # Eclipse ThreadX RTOS
 
+[![MemBrowse](https://membrowse.com/badge.svg)](https://membrowse.com/public/michael-membrowse/threadx)
+
 This advanced real-time operating system (RTOS) is designed specifically for deeply embedded applications. Among the multiple benefits it provides are advanced scheduling facilities, message passing, interrupt management, and messaging services. Eclipse ThreadX RTOS has many advanced features, including picokernel architecture, preemption threshold, event chaining, and a rich set of system services.
 
 Here are the key features and modules of ThreadX:
