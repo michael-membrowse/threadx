@@ -11,7 +11,10 @@ set -euo pipefail
 VARIANT="${1:?usage: $0 <cortex_m0|cortex_m3|cortex_m4|cortex_m7>}"
 NUM="${VARIANT#cortex_m}"
 
-REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+# Use $PWD (set to repo root by the workflow / onboard-action's per-commit
+# checkout) so the script works even when run from /tmp during onboarding,
+# where $(dirname "$0")/../.. would resolve incorrectly.
+REPO_ROOT="$(pwd)"
 BUILD_DIR="${REPO_ROOT}/build-${VARIANT}"
 EXAMPLE_DIR="${REPO_ROOT}/ports/${VARIANT}/gnu/example_build"
 
