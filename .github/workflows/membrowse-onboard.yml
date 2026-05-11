@@ -41,20 +41,24 @@ jobs:
 
       # The onboard action checks out each historical commit, which deletes
       # files that only exist at HEAD (like our build helper). Stash the
-      # scripts dir to /tmp before the action runs and redirect build_script
-      # to that location so it survives every checkout.
-      - name: Stash build scripts for historical checkouts
+      # scripts dir to /tmp before the action runs and rewrite build_cmd
+      # to point there so it survives every checkout.
+      - name: Stash build scripts and redirect build_cmd
+        id: stash
+        env:
+          BUILD_CMD: ${{ matrix.build_cmd }}
         run: |
           mkdir -p /tmp/mb-scripts
           cp -r .github/scripts/. /tmp/mb-scripts/
           chmod +x /tmp/mb-scripts/*.sh
+          echo "build_cmd=${BUILD_CMD//.github\/scripts\//\/tmp\/mb-scripts\/}" >> "$GITHUB_OUTPUT"
 
       - name: Run MemBrowse Onboard Action
         uses: membrowse/membrowse-action/onboard-action@v1
         with:
           target_name: ${{ matrix.target_name }}
           num_commits: ${{ github.event.inputs.num_commits }}
-          build_script: ${{ replace(matrix.build_cmd, '.github/scripts/', '/tmp/mb-scripts/') }}
+          build_script: ${{ steps.stash.outputs.build_cmd }}
           elf: ${{ matrix.elf }}
           ld: ${{ matrix.ld }}
           map_file: ${{ matrix.map_file }}
